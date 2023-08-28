@@ -3508,7 +3508,7 @@ class ImagePreviewRenderer
         {
             return;
         }
-        const aspectRatio = state._view.context.drawingBufferWidth / state._view.context.drawingBufferHeight;
+        const aspectRatioCanvas = state._view.context.drawingBufferWidth / state._view.context.drawingBufferHeight;
 
         const gl = webGl.context;
 
@@ -3525,6 +3525,7 @@ class ImagePreviewRenderer
         const location = gl.getUniformLocation(shader.program,"u_previewTexture");
         const image = state.gltf.images[state.gltf.textures[previewTexture].source];
         const info = new gltfTextureInfo(previewTexture, 0, image.imageType !== ImageType.COLOR);
+        const aspectRatioTex    = image.image.width/image.image.height;
 
         if (location < 0)
         {
@@ -3540,7 +3541,7 @@ class ImagePreviewRenderer
         const linearColor_loc = gl.getUniformLocation(shader.program,"u_linearColor");
         gl.uniform1i(linearColor_loc, info.linear);
         const aspectRatio_loc = gl.getUniformLocation(shader.program,"u_aspectRatio");
-        gl.uniform1f(aspectRatio_loc, aspectRatio);
+        gl.uniform1f(aspectRatio_loc, aspectRatioCanvas/aspectRatioTex);
 
         // fullscreen triangle
         gl.drawArrays(gl.TRIANGLES, 0, 3);
