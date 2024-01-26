@@ -1473,8 +1473,8 @@ a.box:active {
 }
 .button.is-loading::after {
   position: absolute;
-  left: calc(50% - (1em * 0.5));
-  top: calc(50% - (1em * 0.5));
+  left: calc(50% - 1em * 0.5);
+  top: calc(50% - 1em * 0.5);
   position: absolute !important;
 }
 .button.is-static {
@@ -11959,14 +11959,14 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   top: 0.25em;
 }
 .field.is-floating-in-label > .label + .control.datepicker .input, .field.is-floating-in-label > .label + .control.timepicker .input {
-  padding-top: calc(3.25em * 0.5 - (1.5rem * 0.75) * 0.5);
+  padding-top: calc(3.25em * 0.5 - 1.5rem * 0.75 * 0.5);
   padding-bottom: 1px;
   height: 3.25em;
 }
 .field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .input,
 .field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .textarea,
 .field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) select {
-  padding-top: calc(3.25em * 0.5 - (1.5rem * 0.75) * 0.5);
+  padding-top: calc(3.25em * 0.5 - 1.5rem * 0.75 * 0.5);
   padding-bottom: 1px;
   height: 3.25em;
 }
@@ -11974,30 +11974,30 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   height: 3.25em;
 }
 .field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .select:not(multiple).is-loading::after {
-  margin-top: calc(3.25em * 0.5 - (1.5rem * 0.75) * 0.5);
+  margin-top: calc(3.25em * 0.5 - 1.5rem * 0.75 * 0.5);
 }
 .field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .select:not(multiple)::after {
   margin-top: 1px;
 }
 .field.is-floating-in-label > .label + .control.taginput .taginput-container {
-  padding-top: calc(3.25em * 0.5 - (1.5rem * 0.75) * 0.5 + (0.275em - 1px));
+  padding-top: calc(3.25em * 0.5 - 1.5rem * 0.75 * 0.5 + 0.275em - 1px);
 }
 .field.is-floating-in-label > .label + .control:not(.taginput) .is-left.icon,
 .field.is-floating-in-label > .label + .control:not(.taginput) .is-right.icon {
   height: 3.25em;
 }
 .field.is-floating-in-label > .label + .control:not(.taginput) .is-left.icon {
-  padding-top: calc(3.25em * 0.5 - (1.5rem * 0.75) * 0.5);
+  padding-top: calc(3.25em * 0.5 - 1.5rem * 0.75 * 0.5);
 }
 .field.is-floating-in-label > .label + .control.is-loading::after {
-  margin-top: calc(3.25em * 0.5 - (1.5rem * 0.75) * 0.5);
+  margin-top: calc(3.25em * 0.5 - 1.5rem * 0.75 * 0.5);
 }
 .field.is-floating-in-label > .label + .field-body > .is-grouped .control .input,
 .field.is-floating-in-label > .label + .field-body > .is-grouped .control .textarea,
 .field.is-floating-in-label > .label + .field-body > .is-grouped .control select, .field.is-floating-in-label > .label + .field-body > .has-addons .control .input,
 .field.is-floating-in-label > .label + .field-body > .has-addons .control .textarea,
 .field.is-floating-in-label > .label + .field-body > .has-addons .control select {
-  padding-top: calc(3.25em * 0.5 - (1.5rem * 0.75) * 0.5);
+  padding-top: calc(3.25em * 0.5 - 1.5rem * 0.75 * 0.5);
   padding-bottom: 1px;
 }
 .field.is-floating-in-label > .label + .field-body > .is-grouped .control .input,
@@ -12073,8 +12073,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   stroke-width: 0;
   stroke: currentColor;
   pointer-events: none;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
 }
 
 .b-image-wrapper > img {
@@ -12185,6 +12185,19 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .modal .modal-content {
   width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .modal .modal-close {
+    /* keep modal-close visible when the contents fill the screen */
+    background-color: color-mix(in hsl, rgba(245, 245, 245, 0.86) 10%, transparent);
+  }
+  .modal .modal-close:hover,
+  .modal .modal-close :focus {
+    background-color: color-mix(in hsl, rgba(245, 245, 245, 0.86) 20%, transparent);
+  }
+  .modal .modal-close:active {
+    background-color: color-mix(in hsl, rgba(245, 245, 245, 0.86) 30%, transparent);
+  }
 }
 
 .navbar.has-navbar-centered .navbar-start {
@@ -13176,6 +13189,12 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
     width: 100%;
     max-width: 100%;
   }
+}
+.b-sidebar .sidebar-content .sidebar-close {
+  background: rgba(10, 10, 10, 0.3);
+}
+.b-sidebar .sidebar-content .sidebar-close:hover {
+  background: rgba(10, 10, 10, 0.86);
 }
 .b-sidebar .sidebar-background {
   bottom: 0;
@@ -14565,6 +14584,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 }
 .b-table .table th .th-wrap {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
 }
 .b-table .table th .th-wrap .icon {
@@ -14577,9 +14598,11 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   text-align: right;
   width: 95%;
 }
-.b-table .table th .th-wrap.is-numeric .icon {
+.b-table .table th .th-wrap.is-numeric .sort-icon {
   margin-left: 0;
   margin-right: 0.5rem;
+  left: 0;
+  right: auto;
 }
 .b-table .table th .th-wrap.is-centered {
   justify-content: center;
@@ -14598,13 +14621,17 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-table .table th.is-sortable .is-relative, .b-table .table th.is-sortable .th-wrap .is-relative {
   position: absolute;
 }
-.b-table .table th .sort-icon, .b-table .table th .multi-sort-cancel-icon {
+.b-table .table th .sort-icon {
   position: absolute;
   bottom: 50%;
-  left: 100%;
+  right: 0;
   transform: translateY(50%);
 }
-.b-table .table th .multi-sort-cancel-icon {
+.b-table .table th .multi-sort-icons {
+  display: flex;
+  align-items: center;
+}
+.b-table .table th .multi-sort-icons .multi-sort-cancel-icon {
   margin-left: 10px;
 }
 .b-table .table th.is-sticky {
@@ -14806,6 +14833,40 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   font-weight: 600;
   padding-right: 0.5em;
   text-align: left;
+}
+
+.touch-dragged-cell {
+  position: absolute;
+}
+
+.touch-dragged-cell,
+.touch-dragged-cell .table {
+  pointer-events: none;
+  background-color: color-mix(in srgb, #363636 10%, transparent);
+}
+
+.touch-dragged-cell .table {
+  width: 100%;
+}
+.touch-dragged-cell .table tr, .touch-dragged-cell .table td {
+  background-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+  .touch-dragged-cell.has-mobile-cards .table tr {
+    display: block;
+  }
+  .touch-dragged-cell.has-mobile-cards .table tr td {
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+  }
+  .touch-dragged-cell.has-mobile-cards .table tr td:before {
+    content: attr(data-label);
+    font-weight: 600;
+    padding-right: 0.5em;
+    text-align: left;
+  }
 }
 
 .b-tabs .tabs {
@@ -15010,6 +15071,13 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .tag.has-delete-icon .icon:first-child:not(:last-child) {
   margin-right: 0px;
   margin-left: 0px;
+}
+
+.tags.inline-tags {
+  margin-bottom: 0px;
+}
+.tags.inline-tags:not(:last-child) {
+  margin-right: 0.5rem;
 }
 
 .taginput .taginput-container {
@@ -15817,7 +15885,17 @@ div .field.has-addons {
 }
 
 .b-slider.comparisonImageSlider .b-slider-thumb {
-  width: 2px;
+  width: 20px;
+  background: transparent;
+  border: transparent;
+}
+
+.custom-slider {
+  border: 1px solid hsl(0, 0%, 71%);
+  position: absolute;
+  border-radius: 9999px;
+  left: 50%;
+  height: 100%;
 }
 
 .b-slider.iblIntensitySlider {
@@ -15907,6 +15985,25 @@ button.button {
   height: 48px;
 }
 
+.modelCredit {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  word-break: break-word;
+}
+
+.modelCreditBottom {
+  margin-top: 1.5rem;
+  margin-right: 1em;
+  margin-bottom: 1.5rem;
+  word-break: break-word;
+}
+
+@media (min-height: 768px) {
+  .modelCreditBottom {
+    position: absolute;
+    bottom: 0;
+  }
+}
 #gltf-sample-viewer-model-spinner {
   position: absolute;
   top: 0;
@@ -15931,14 +16028,14 @@ button.button {
     transform: rotate(360deg);
   }
 }
-input[type=checkbox] {
+.texture-checkbox {
   -webkit-appearance: none;
   position: relative;
   width: 100%;
   cursor: pointer;
 }
 
-input[type=checkbox]:after {
+.texture-checkbox:after {
   position: absolute;
   font-family: "Font Awesome 5 Free";
   font-weight: 400;
@@ -15948,7 +16045,27 @@ input[type=checkbox]:after {
   left: 5px;
 }
 
-input[type=checkbox]:checked:after {
+.texture-checkbox:checked:after {
+  font-weight: 900;
+  content: "\f14a";
+  color: #fff;
+}
+
+.tree-checkbox {
+  -webkit-appearance: none;
+  cursor: pointer;
+  margin: auto 0;
+}
+
+.tree-checkbox:after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f0c8";
+  font-size: 18px;
+  color: #fff;
+}
+
+.tree-checkbox:checked:after {
   font-weight: 900;
   content: "\f14a";
   color: #fff;
@@ -16015,6 +16132,33 @@ input[type=checkbox]:checked:after {
   background-color: rgba(0, 0, 0, 0.5019607843);
 }
 
+.container_geometry {
+  overflow-y: auto;
+  max-height: 220px;
+}
+
+.container_geometry table {
+  width: 100%;
+  text-align: left;
+  table-layout: fixed;
+  font-size: small;
+}
+
+.container_geometry th, .container_geometry td {
+  border: 1px solid gray;
+  padding: 1px;
+  font-weight: normal;
+  font-size: smaller;
+}
+
+.container_geometry tr:nth-child(odd) {
+  background-color: #000000;
+}
+
+.container_geometry tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.5019607843);
+}
+
 @keyframes spinner {
   0% {
     transform: translate3d(-50%, -50%, 0) rotate(0deg);
@@ -16054,4 +16198,53 @@ td {
 
 .td_style {
   width: 75px;
+}
+
+.item-checkbox input[type=checkbox] {
+  display: inline-block;
+}
+
+.item-checkbox input[type=checkbox]:checked {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f0c8";
+  font-size: 18px;
+  color: #fff;
+}
+
+.collapseArea {
+  border: solid #87c540;
+  border-width: thin;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.mesh_node_tree_container {
+  overflow-y: auto;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+.mesh_node_tree {
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.divDropButton,
+.divDropButton:hover,
+.divDropButton:focus:not(:active),
+.divDropButton.is-focused:not(:active) {
+  background-color: inherit;
+  color: white;
+  width: 100%;
+  margin: 0;
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
+  outline: none;
+  box-shadow: none;
+}
+
+ul {
+  padding-left: 1em;
 }
